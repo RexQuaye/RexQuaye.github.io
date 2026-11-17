@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rex Quaye | Linux Admin &amp; Customer Support</title>
+<meta name="description" content="Rex Quaye: RHCSA-certified Linux systems administrator and customer support professional. U.S. Navy veteran based in New York.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f8fa; --surface: #ffffff; --text: #16191f; --muted: #5b6270;
+    --border: #e3e6eb; --accent: #c8102e; --accent-soft: #fbe9ec; --chip: #eef1f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1115; --surface: #171a20; --text: #e8eaee; --muted: #9aa1ad;
+      --border: #2a2f38; --accent: #ff5468; --accent-soft: #2a1519; --chip: #222731;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 Inter, system-ui, sans-serif; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  nav .brand { font-weight: 700; color: var(--text); }
+  nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  nav ul a { color: var(--muted); }
+  @media (max-width: 600px) { nav ul { display: none; } }
+
+  header { padding: 72px 0 56px; }
+  .eyebrow { font: 500 13px "JetBrains Mono", monospace; color: var(--accent); letter-spacing: .04em; }
+  h1 { font-size: clamp(36px, 7vw, 56px); line-height: 1.1; margin: 12px 0 16px; letter-spacing: -.02em; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn:hover { text-decoration: none; filter: brightness(1.05); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 48px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .stat b { display: block; font-size: 26px; letter-spacing: -.01em; }
+  .stat span { color: var(--muted); font-size: 14px; }
+
+  section { padding: 48px 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 26px; margin: 0 0 24px; letter-spacing: -.01em; }
+  h3 { font-size: 17px; margin: 0 0 4px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px; color: var(--text); transition: border-color .15s, transform .15s; }
+  a.card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+  .card p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .card .go { margin-top: auto; font-size: 13px; color: var(--accent); font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--chip); border-radius: 999px; padding: 3px 10px; font-size: 12.5px; color: var(--muted); }
+
+  .job { display: grid; grid-template-columns: 200px 1fr; gap: 8px 24px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+  .job:last-child { border-bottom: 0; }
+  .job .when { color: var(--muted); font-size: 14px; }
+  .job .org { color: var(--muted); font-size: 14.5px; margin-bottom: 8px; }
+  .job ul { margin: 0; padding-left: 18px; }
+  .job li { margin: 4px 0; }
+  @media (max-width: 640px) { .job { grid-template-columns: 1fr; } }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .skills .card h3 { font-size: 15px; }
+
+  .badges { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .badge { display: flex; gap: 14px; align-items: flex-start; }
+  .badge .icon { flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-size: 13px; }
+  .muted { color: var(--muted); font-size: 14px; }
+
+  footer { padding: 40px 0 56px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">Rex Quaye</a>
+  <ul>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header id="top"><div class="wrap">
+  <div class="eyebrow">RHCSA · U.S. NAVY VETERAN · NEW YORK, NY</div>
+  <h1>Linux administration backed by 8+ years of customer support.</h1>
+  <p class="lead">I resolve trouble tickets on RHEL and CentOS Stream servers, automate the repetitive work with Ansible, and document every fix so it stays fixed. Before Linux I spent years as the person customers, field teams, and carriers called when something went wrong.</p>
+  <div class="btns">
+    <a class="btn primary" href="#projects">See my projects</a>
+    <a class="btn" href="https://github.com/RexQuaye" target="_blank" rel="noopener">GitHub profile</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>78% → 95%</b><span>on-time delivery after my SOPs</span></div>
+    <div class="stat"><b>~$410K</b><span>saved per year through new procedures</span></div>
+    <div class="stat"><b>80–140</b><span>calls &amp; emails handled per dispatch shift</span></div>
+    <div class="stat"><b>7+ years</b><span>U.S. Navy, Secret clearance (inactive)</span></div>
+  </div>
+</div></header>
+
+<section id="projects"><div class="wrap">
+  <h2>Hands-on projects</h2>
+  <div class="grid">
+    <a class="card" href="https://github.com/RexQuaye/Ansible-Patch-Automation" target="_blank" rel="noopener">
+      <h3>Ansible Patch Automation</h3>
+      <p>Playbooks that patch servers, provision users, and apply firewall changes across a fleet.</p>
+      <div class="chips"><span class="chip">Ansible</span><span class="chip">RHEL</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+    <a class="card" href="https://github.com/RexQuaye/Freeipa-Identity-Management" target="_blank" rel="noopener">
+      <h3>FreeIPA Identity Management</h3>
+      <p>Centralized users, groups, and Kerberos authentication for Linux hosts.</p>
+      <div class="chips"><span class="chip">FreeIPA</span><span class="chip">Kerberos</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+    <a class="card" href="https://github.com/RexQuaye/Podman-Container-Management" target="_blank" rel="noopener">
+      <h3>Podman Container Management</h3>
+      <p>Running and managing rootless containers on RHEL with Podman.</p>
+      <div class="chips"><span class="chip">Podman</span><span class="chip">Containers</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+    <a class="card" href="https://github.com/RexQuaye/Nagios-CheckMK-Infrastructure-Monitoring" target="_blank" rel="noopener">
+      <h3>Nagios &amp; CheckMK Monitoring</h3>
+      <p>Infrastructure monitoring and alerting for servers and services.</p>
+      <div class="chips"><span class="chip">Nagios</span><span class="chip">CheckMK</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+    <a class="card" href="https://github.com/RexQuaye/Kickstart-Automated-OS-Installation" target="_blank" rel="noopener">
+      <h3>Kickstart OS Installation</h3>
+      <p>Hands-off, repeatable Linux installs using Kickstart files.</p>
+      <div class="chips"><span class="chip">Kickstart</span><span class="chip">Automation</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+    <a class="card" href="https://github.com/RexQuaye/VMware-VM-Provisioning" target="_blank" rel="noopener">
+      <h3>VMware VM Provisioning</h3>
+      <p>Building and provisioning virtual machines in VMware vSphere.</p>
+      <div class="chips"><span class="chip">VMware</span><span class="chip">vSphere</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+    <a class="card" href="https://github.com/RexQuaye/Active-Directory-Management" target="_blank" rel="noopener">
+      <h3>Active Directory Management</h3>
+      <p>Managing users, groups, and policies in a Windows domain.</p>
+      <div class="chips"><span class="chip">Active Directory</span><span class="chip">Windows</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+    <a class="card" href="https://github.com/RexQuaye/Veeam-Backup-Configuration" target="_blank" rel="noopener">
+      <h3>Veeam Backup Configuration</h3>
+      <p>Setting up backup jobs and restores to protect server data.</p>
+      <div class="chips"><span class="chip">Veeam</span><span class="chip">Backup</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+    <a class="card" href="https://github.com/RexQuaye/LAMP-Stack-CRM-Deployment" target="_blank" rel="noopener">
+      <h3>LAMP Stack CRM Deployment</h3>
+      <p>Deploying a CRM application on Linux, Apache, MySQL, and PHP.</p>
+      <div class="chips"><span class="chip">Apache</span><span class="chip">MySQL</span><span class="chip">PHP</span></div>
+      <span class="go">View on GitHub →</span>
+    </a>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="when">Jul 2024 – Present</div>
+    <div>
+      <h3>Linux Systems Administration Apprentice</h3>
+      <div class="org">Yellow Tail Tech (Pro-Core Plus Apprenticeship) · Remote</div>
+      <ul>
+        <li>Resolve assigned trouble tickets across RHEL and CentOS Stream 9 servers.</li>
+        <li>Investigate failures to root cause, including SSL certificate, RPM database, and Kerberos authentication errors.</li>
+        <li>Automate server patching, user provisioning, and firewall changes with Ansible playbooks.</li>
+        <li>Document each ticket's root cause and fix as a knowledge article in a public GitHub portfolio.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Feb 2024 – Oct 2024</div>
+    <div>
+      <h3>Dispatcher (Security &amp; Housekeeping)</h3>
+      <div class="org">Quality Building Services · New York, NY</div>
+      <ul>
+        <li>Primary point of contact for security officers and Fire Life Safety Directors across client buildings.</li>
+        <li>Handled 80 to 140 calls and emails per 8-hour shift while managing multiple priorities.</li>
+        <li>Escalated critical incidents, including floods, fires, and injuries, to designated personnel.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Jul 2018 – Dec 2023</div>
+    <div>
+      <h3>Logistics Coordinator</h3>
+      <div class="org">SMEG USA (Luxury Appliances) · New York, NY</div>
+      <ul>
+        <li>Resolved 20 to 50 inbound calls a day covering service requests, repairs, and returns.</li>
+        <li>Coordinated between customers, service technicians, carriers, and internal teams.</li>
+        <li>Primary escalation point for carrier and vendor issues.</li>
+        <li>Raised on-time delivery from 78% to 95% and saved about $410K a year through new SOPs.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when">Earlier</div>
+    <div>
+      <h3>Inventory, Operations &amp; Logistics roles</h3>
+      <div class="org">Maesa Group · Global Brands Group / LF USA · Victoria's Secret · Vitan Trade · Yankee Commodity Foods</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="card"><h3>Linux &amp; Infrastructure</h3><div class="chips"><span class="chip">RHEL</span><span class="chip">CentOS Stream 9</span><span class="chip">Ansible</span><span class="chip">FreeIPA</span><span class="chip">VMware vSphere</span><span class="chip">Podman</span><span class="chip">Nagios</span><span class="chip">CheckMK</span></div></div>
+    <div class="card"><h3>Support &amp; Troubleshooting</h3><div class="chips"><span class="chip">Root cause analysis</span><span class="chip">Ticket &amp; incident tracking</span><span class="chip">Knowledge articles</span><span class="chip">SOP development</span><span class="chip">Escalation management</span></div></div>
+    <div class="card"><h3>Communication</h3><div class="chips"><span class="chip">Phone &amp; email support</span><span class="chip">Customer status updates</span><span class="chip">Vendor coordination</span><span class="chip">Emergency response</span></div></div>
+    <div class="card"><h3>Tools</h3><div class="chips"><span class="chip">GitHub</span><span class="chip">Zendesk</span><span class="chip">SAP</span><span class="chip">WinTeam</span><span class="chip">Excel (Pivot, VLOOKUP)</span><span class="chip">Google Workspace</span></div></div>
+  </div>
+</div></section>
+
+<section id="certs"><div class="wrap">
+  <h2>Certifications, service &amp; education</h2>
+  <div class="badges">
+    <div class="badge"><div class="icon">RH</div><div><h3>Red Hat Certified System Administrator</h3><div class="muted">RHCSA · July 2026</div></div></div>
+    <div class="badge"><div class="icon">RH</div><div><h3>Red Hat Certified Engineer</h3><div class="muted">RHCE · In progress</div></div></div>
+    <div class="badge"><div class="icon">USN</div><div><h3>Submarine Logistics Specialist</h3><div class="muted">U.S. Navy · 7+ years · DoD Secret clearance (inactive, eligible for reinstatement)</div></div></div>
+    <div class="badge"><div class="icon">BS</div><div><h3>B.S., Business Administration</h3><div class="muted">Vincennes University</div></div></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>Get in touch</h2>
+  <p class="lead">Open to Linux administration, technical support, and support-engineering roles in New York or remote.</p>
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/RexQuaye" target="_blank" rel="noopener">Contact me on GitHub</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 Rex Quaye</span>
+  <a href="https://github.com/RexQuaye" target="_blank" rel="noopener">github.com/RexQuaye</a>
+</div></footer>
+
+</body>
+</html>
